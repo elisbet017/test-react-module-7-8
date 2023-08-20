@@ -21,7 +21,6 @@ export const EditUserPage = () => {
     const field = e.target;
     switch (e.target.name) {
       case 'name': {
-        console.log(field.value);
         setUser({ ...user, name: field.value });
         break;
       }
