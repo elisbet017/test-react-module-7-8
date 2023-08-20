@@ -17,7 +17,6 @@ export const EditUserPage = () => {
   }, [dispatch, params.id]);
 
   const handleChange = e => {
-    console.log(e.target.value);
     const field = e.target;
     switch (e.target.name) {
       case 'name': {
@@ -46,7 +45,6 @@ export const EditUserPage = () => {
   };
 
   const handleSubmit = () => {
-    console.log(user);
     dispatch(editUser(user));
     navigation(`/users/${params.id}`);
   };
