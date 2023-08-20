@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { deleteUserById, getUserById } from 'redux/users/operations';
+import { getUserById } from 'redux/users/operations';
 import { selectUserById } from 'redux/users/selectors';
 import { Modal } from 'components/Modal/Modal';
 
