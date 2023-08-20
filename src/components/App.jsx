@@ -1,32 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from 'pages/HomePage';
-import LoginPage from 'pages/LoginPage';
-import RegisterPage from 'pages/RegisterPage';
-import { getCurrentUser } from 'redux/auth/auth-operations';
-import { SharedLayout } from './SharedLayout/SharedLayout';
+import { HomePage } from '../pages/HomePage';
+import UsersPage from '../pages/UsersPage';
+import { UserDetailsPage } from '../pages/UserDetailsPage';
+import { AddUserPage } from 'pages/AddUserPage';
+import { EditUserPage } from 'pages/EditUserPage';
+import { Layout } from './Layout/Layout';
 
 export const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCurrentUser());
-  }, [dispatch]);
-
   return (
-    <>
-      <SharedLayout />
-      <Routes>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<HomePage />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="users" element={<UsersPage />} />
+        <Route path="users/:id" element={<UserDetailsPage />} />
+        <Route path="users/add" element={<AddUserPage />} />
+      </Route>
+      <Route path="users/:id/edit" element={<EditUserPage />} />
+    </Routes>
   );
 };
-// лоадер додати
-// в аус-слайсі додати обробку помилок і пендінга через матчер
-// обробити помилки
-// почистити папки
-// почистити код
